@@ -10,13 +10,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         try {
-            InputStream cellphoneNumbers = new FileInputStream("src/com/exercise5/part10/resources/contacts.txt");
+            InputStream cellphoneNumbers = new FileInputStream("src/com/exercise6/part10/resources/contacts.txt");
             byte[] byteNumbers = cellphoneNumbers.readAllBytes();
             ArrayList<String> numbers = findNumbers(byteNumbers);
-            System.out.println(numbers);
+            System.out.println("Los números disponibles son: " + numbers);
+            System.out.println("------------------------------------------------");
             cellphoneNumbers.close();
 
-            PrintStream backUp = new PrintStream("src/com/exercise5/part10/resources/backup.txt");
+            PrintStream backUp = new PrintStream("src/com/exercise6/part10/resources/backup.txt");
             HashMap<String, String> contacts = assignNumbers(numbers);
             for (Map.Entry<String, String> entry : contacts.entrySet()) {
                 String contact = "Nombre: " + entry.getKey() + " - Número: " + entry.getValue() + "\n";
